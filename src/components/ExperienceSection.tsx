@@ -33,7 +33,7 @@ export const ExperienceSection: React.FC = () => {
           </div>
 
           {/* Internship Card */}
-          <div 
+          <div
             onMouseEnter={() => sfx.playHover()}
             className="glass-panel p-6 rounded-2xl border border-cyan-500/30 glass-panel-hover relative space-y-4"
           >
@@ -84,7 +84,7 @@ export const ExperienceSection: React.FC = () => {
 
           <div className="space-y-4">
             {/* Degree 1 */}
-            <div 
+            <div
               onMouseEnter={() => sfx.playHover()}
               className="glass-panel p-5 rounded-2xl border border-purple-500/30 glass-panel-hover space-y-2"
             >
@@ -106,14 +106,14 @@ export const ExperienceSection: React.FC = () => {
             </div>
 
             {/* Degree 2 */}
-            <div 
+            <div
               onMouseEnter={() => sfx.playHover()}
               className="glass-panel p-5 rounded-2xl border border-slate-800 glass-panel-hover space-y-2"
             >
               <div className="flex flex-wrap justify-between items-start gap-2">
                 <div>
                   <h4 className="text-base font-orbitron font-bold text-white">HIGHER SECONDARY CERTIFICATE (HSC)</h4>
-                  <div className="text-sm font-mono text-slate-300">Ruby Matric Hr Sec School</div>
+                  <div className="text-sm font-mono text-slate-300">Ruby Matric. Hr. Sec. School</div>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono">
                   2023 - 2024
@@ -125,14 +125,14 @@ export const ExperienceSection: React.FC = () => {
             </div>
 
             {/* Degree 3 */}
-            <div 
+            <div
               onMouseEnter={() => sfx.playHover()}
               className="glass-panel p-5 rounded-2xl border border-slate-800 glass-panel-hover space-y-2"
             >
               <div className="flex flex-wrap justify-between items-start gap-2">
                 <div>
                   <h4 className="text-base font-orbitron font-bold text-white">SECONDARY SCHOOL LEAVING CERTIFICATE (SSLC)</h4>
-                  <div className="text-sm font-mono text-slate-300">Ruby Matric Hr Sec School</div>
+                  <div className="text-sm font-mono text-slate-300">Ruby Matric. Hr. Sec. School</div>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono">
                   2021 - 2022

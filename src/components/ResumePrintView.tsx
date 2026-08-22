@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Printer } from 'lucide-react';
+import { X, Printer, Download } from 'lucide-react';
 import { sfx } from '../utils/sfx';
 
 interface ResumePrintViewProps {
@@ -15,6 +15,12 @@ export const ResumePrintView: React.FC<ResumePrintViewProps> = ({ isOpen, onClos
     window.print();
   };
 
+  const handleDownloadPDF = () => {
+    sfx.playSuccess();
+    // Open print dialog which allows saving as PDF
+    window.print();
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md overflow-y-auto">
       <div className="relative w-full max-w-4xl bg-white text-slate-900 rounded-2xl shadow-2xl overflow-hidden text-left my-8 border border-slate-300 print:shadow-none print:border-none print:m-0 print:w-full print:max-w-none">
@@ -22,14 +28,21 @@ export const ResumePrintView: React.FC<ResumePrintViewProps> = ({ isOpen, onClos
         <div className="bg-slate-900 px-6 py-4 border-b border-slate-700 flex items-center justify-between print:hidden">
           <div className="flex items-center space-x-2 text-white font-orbitron text-sm font-bold">
             <span>SANJAY_S_RESUME.pdf</span>
-            <span className="text-xs font-mono font-normal text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">PRINT / EXPORT MODE</span>
+            <span className="text-xs font-mono font-normal text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">EXPORT MODE</span>
           </div>
           <div className="flex items-center space-x-3">
+            <button
+              onClick={handleDownloadPDF}
+              title="Save resume as PDF (use Print to PDF option)"
+              className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-orbitron font-bold text-xs flex items-center gap-1.5 shadow-md"
+            >
+              <Download className="w-4 h-4" /> DOWNLOAD PDF
+            </button>
             <button
               onClick={handlePrint}
               className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-orbitron font-bold text-xs flex items-center gap-1.5 shadow-md"
             >
-              <Printer className="w-4 h-4" /> PRINT / SAVE PDF
+              <Printer className="w-4 h-4" /> PRINT
             </button>
             <button
               onClick={() => {

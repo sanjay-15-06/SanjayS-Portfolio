@@ -14,9 +14,9 @@ export const SkillsSection: React.FC = () => {
       borderColor: 'border-cyan-500/30',
       bgGlow: 'bg-cyan-500/10',
       skills: [
-        { name: 'Java 17 / Core Java', level: 90, desc: 'Object-Oriented Programming, Multithreading, Spring Boot, Security' },
-        { name: 'Python', level: 85, desc: 'Scripting, Django, Location Intelligence, PyQt5' },
-        { name: 'C++', level: 70, desc: 'Data Structures, Memory Allocation, Algorithm Foundations' },
+        { name: 'Java 17 / Core Java', desc: 'Object-Oriented Programming, Multithreading, Spring Boot, Security' },
+        { name: 'Python', desc: 'Scripting, Django, Location Intelligence, PyQt5' },
+        { name: 'C++', desc: 'Data Structures, Memory Allocation, Algorithm Foundations' },
       ],
     },
     {
@@ -27,8 +27,8 @@ export const SkillsSection: React.FC = () => {
       borderColor: 'border-purple-500/30',
       bgGlow: 'bg-purple-500/10',
       skills: [
-        { name: 'MySQL', level: 88, desc: 'Relational Schemas, Indexing, Complex Queries, Workbench & CLI' },
-        { name: 'MongoDB', level: 75, desc: 'NoSQL Document Store, BSON Collections, Aggregations' },
+        { name: 'MySQL', desc: 'Relational Schemas, Indexing, Complex Queries, Workbench & CLI' },
+        { name: 'MongoDB', desc: 'NoSQL Document Store, BSON Collections, Aggregations' },
       ],
     },
     {
@@ -39,10 +39,10 @@ export const SkillsSection: React.FC = () => {
       borderColor: 'border-emerald-500/30',
       bgGlow: 'bg-emerald-500/10',
       skills: [
-        { name: 'HTML5 & CSS3', level: 92, desc: 'Semantic Layouts, Responsive Design, CSS Grid & Flexbox' },
-        { name: 'JavaScript (ES6+)', level: 85, desc: 'Async/Await, DOM Operations, Fetch API, Event Loops' },
-        { name: 'React.js', level: 80, desc: 'JSX, Hooks, Component State Management, Dynamic UIs' },
-        { name: 'Node.js', level: 75, desc: 'REST API Servers, Package Management, Async Handlers' },
+        { name: 'HTML5 & CSS3', desc: 'Semantic Layouts, Responsive Design, CSS Grid & Flexbox' },
+        { name: 'JavaScript (ES6+)', desc: 'Async/Await, DOM Operations, Fetch API, Event Loops' },
+        { name: 'React.js', desc: 'JSX, Hooks, Component State Management, Dynamic UIs' },
+        { name: 'Node.js', desc: 'REST API Servers, Package Management, Async Handlers' },
       ],
     },
     {
@@ -53,9 +53,9 @@ export const SkillsSection: React.FC = () => {
       borderColor: 'border-yellow-500/30',
       bgGlow: 'bg-yellow-500/10',
       skills: [
-        { name: 'Git & GitHub', level: 88, desc: 'Branching Strategy, Merging, Commits, Version Control' },
-        { name: 'AWS (Basics)', level: 65, desc: 'Cloud EC2 instance basics, S3 storage fundamentals' },
-        { name: 'Development Tools', level: 90, desc: 'VS Code, Eclipse, MySQL Workbench, Python IDLE' },
+        { name: 'Git & GitHub', desc: 'Branching Strategy, Merging, Commits, Version Control' },
+        { name: 'AWS (Basics)', desc: 'Cloud EC2 instance basics, S3 storage fundamentals' },
+        { name: 'Development Tools', desc: 'VS Code, Eclipse, MySQL Workbench, Python IDLE' },
       ],
     },
   ];
@@ -77,10 +77,10 @@ export const SkillsSection: React.FC = () => {
           <span>TECHNICAL COMPETENCIES</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight">
-          SKILLS & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">TELEMETRY</span>
+          SKILLS & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">TECHNOLOGIES</span>
         </h2>
         <p className="max-w-2xl mx-auto text-slate-400 font-sans text-sm sm:text-base">
-          Proven domain expertise across backend engineering, database management, web systems, and collaborative development tools.
+          Domain expertise across backend engineering, database management, web systems, and collaborative development tools.
         </p>
       </div>
 
@@ -128,7 +128,7 @@ export const SkillsSection: React.FC = () => {
           .map((category) => (
             <div
               key={category.id}
-              className={`glass-panel p-6 rounded-2xl border ${category.borderColor} space-y-6 relative overflow-hidden transition-all duration-300 hover:border-opacity-80`}
+              className={`glass-panel p-6 rounded-2xl border ${category.borderColor} space-y-5 relative overflow-hidden transition-all duration-300 hover:border-opacity-80`}
             >
               <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
                 <div className={`p-2.5 rounded-xl ${category.bgGlow} ${category.color} border ${category.borderColor}`}>
@@ -139,30 +139,22 @@ export const SkillsSection: React.FC = () => {
                 </h3>
               </div>
 
-              {/* Progress Bars */}
-              <div className="space-y-5">
+              {/* Skills List */}
+              <div className="space-y-3">
                 {category.skills.map((skill) => (
-                  <div key={skill.name} className="space-y-1.5 text-left">
-                    <div className="flex justify-between items-center text-xs font-mono">
-                      <span className="text-slate-100 font-bold">{skill.name}</span>
-                      <span className={`${category.color} font-semibold`}>{skill.level}%</span>
+                  <div
+                    key={skill.name}
+                    className="p-3.5 rounded-xl bg-[#090c13]/70 border border-slate-800/80 hover:border-slate-700/80 transition-all text-left space-y-1 group"
+                  >
+                    <div className="flex items-center space-x-2.5">
+                      <span className={`w-2 h-2 rounded-full ${category.color} bg-current shadow-[0_0_8px_currentColor]`} />
+                      <span className="text-sm font-orbitron font-bold text-slate-100 group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
                     </div>
-                    {/* Bar Background */}
-                    <div className="h-2 w-full bg-[#0a0d14] rounded-full overflow-hidden border border-slate-800 p-0.5">
-                      <div
-                        className={`h-full rounded-full transition-all duration-1000 ${
-                          category.id === 'languages'
-                            ? 'bg-gradient-to-r from-cyan-500 to-blue-500'
-                            : category.id === 'databases'
-                            ? 'bg-gradient-to-r from-purple-500 to-indigo-500'
-                            : category.id === 'web'
-                            ? 'bg-gradient-to-r from-emerald-500 to-teal-400'
-                            : 'bg-gradient-to-r from-yellow-500 to-amber-400'
-                        }`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                    <p className="text-[11px] text-slate-400 font-sans">{skill.desc}</p>
+                    <p className="text-xs text-slate-400 font-sans pl-4 leading-relaxed">
+                      {skill.desc}
+                    </p>
                   </div>
                 ))}
               </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Volume2, VolumeX, Download, Cpu, MapPin } from 'lucide-react';
+import { Terminal, Volume2, VolumeX, Download, Cpu, MapPin, FileText } from 'lucide-react';
 import { sfx } from '../utils/sfx';
+import { downloadResume } from '../utils/downloadResume';
 
 interface HeaderProps {
   onOpenTerminal: () => void;
@@ -138,10 +139,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTerminal, onOpenResumePrin
               onOpenResumePrint();
             }}
             onMouseEnter={() => sfx.playHover()}
+            title="View and print resume"
             className="flex items-center space-x-1.5 px-3.5 py-1.5 text-xs font-orbitron font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-md shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all transform hover:scale-105 active:scale-95"
           >
+            <FileText className="w-3.5 h-3.5" />
+            <span>VIEW</span>
+          </button>
+
+          {/* Direct Download Resume Button */}
+          <button
+            onClick={() => downloadResume()}
+            onMouseEnter={() => sfx.playHover()}
+            title="Download resume as PDF"
+            className="flex items-center space-x-1.5 px-3.5 py-1.5 text-xs font-orbitron font-semibold bg-emerald-600 hover:bg-emerald-500 text-slate-950 rounded-md shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105 active:scale-95"
+          >
             <Download className="w-3.5 h-3.5" />
-            <span>RESUME</span>
+            <span>DOWNLOAD</span>
           </button>
 
           {/* Mobile Menu Toggle Button */}
@@ -188,6 +201,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenTerminal, onOpenResumePrin
             className="w-full text-left px-3 py-2 text-purple-300 bg-purple-950/40 rounded border border-purple-500/30 flex items-center gap-2"
           >
             <Terminal className="w-4 h-4" /> Open Command Line Interface
+          </button>
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              downloadResume();
+            }}
+            className="w-full text-left px-3 py-2 text-emerald-300 bg-emerald-950/40 rounded border border-emerald-500/30 flex items-center gap-2"
+          >
+            <Download className="w-4 h-4" /> Download Resume
           </button>
         </div>
       )}
